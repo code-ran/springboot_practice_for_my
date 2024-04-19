@@ -1,0 +1,17 @@
+适用场景:
+   允许开发人员在应用程序启动完成后执行一些自定义的任务，例如加载初始化数据、执行数据迁移、启动后台任务等
+
+1.CommandLineRunner接口:
+方法签名: void run(String... args)
+参数类型: 字符串数组，表示应用程序启动时传递的命令行参数
+执行时机: 在Spring上下文准备好之后，但在调用ApplicationRunner之前执行,@PostConstruct注解的方法会先于实现了CommandLineRunner接口的run方法执行
+
+
+
+2.ApplicationRunner接口:
+方法签名: void run(ApplicationArguments args)
+参数类型: ApplicationArguments对象，提供对应用程序启动参数的更高级别访问
+执行时机: 在CommandLineRunner之后执行。
+
+
+@Order注解可以确保执行顺序
